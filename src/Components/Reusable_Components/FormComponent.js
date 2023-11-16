@@ -39,7 +39,7 @@ import { API_ROUTES, API_DOMAIN } from './apiConfig';
   
     try {
       setLoading(true)
-      const apiUrl = Object.keys(initialFormData).length > 0 ? `${API_DOMAIN}${API_ROUTES[route]}${formData['id']}/` : `${API_DOMAIN}${API_ROUTES[route]}`;
+      const apiUrl = Object.keys(initialFormData).length > 0 ? `${API_DOMAIN}${API_ROUTES[route]}/${formData['id']}/` : `${API_DOMAIN}${API_ROUTES[route]}`;
         // Retrieve the token from localStorage
         
         const token = localStorage.getItem('token');
@@ -74,7 +74,7 @@ import { API_ROUTES, API_DOMAIN } from './apiConfig';
       const response = await axiosMethod(apiUrl, formDataObject, { headers });
       setLoading(false)
       
-
+        console.log(response.status)
       if(response.status === 200) {
         console.log('Response from the backend:', response.data);
         setSubmitResult({ success: true, message: 'Data submitted successfully!' });
@@ -88,7 +88,25 @@ import { API_ROUTES, API_DOMAIN } from './apiConfig';
           window.location.href = redirectRoute
       }
       
-      } else {
+      
+      } 
+      else if(response.status === 201) {
+        console.log('Response from the backend:', response.data);
+        setSubmitResult({ success: true, message: 'Data submitted successfully!' });
+       if(response.data['success']['token'])
+       {
+          localStorage.setItem('token',response.data['success']['token'])
+       }
+      if(redirectRoute)
+      {
+
+          window.location.href = redirectRoute
+      }
+      
+    }
+      
+      
+      else {
         console.log('Response from the backend:', response.data);
         setSubmitResult({ success: false, message: 'Failed to submit data' });
       }

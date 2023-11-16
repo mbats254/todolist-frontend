@@ -26,13 +26,24 @@ const OrganisationListDetails = () => {
 
   const columns = [
     { label: 'Name', value: 'name' },
-    // Add more columns as needed
+    {
+        label: 'Edit',
+        value: (organisationId) => <button onClick={() => handleEdit(organisationId)}>Edit</button>,
+      },
+  
   ];
+  
+  const handleEdit = (id) => {
+    // Handle edit action
+    // alert('Edit Device Type: ' + id);
+    
+    window.location.href = `/organisation/input/:${id}`
+  };
 
   return (
     <div>
       <h1>Organisation List</h1>
-      <ListTemplate columns={columns} data={organisations} />
+      <ListTemplate columns={columns} onEdit={handleEdit} data={organisations} />
     </div>
   );
 };
