@@ -4,7 +4,9 @@ export const API_ROUTES = {
   // Auth
   userRegister: 'api/user/register',
   userLogin: 'api/user/login',
-  organisations : 'api/organisations'
+  organisations : 'api/organisations',
+  itemToDos: 'api/organisations/todo-items/',
+  users: 'api/all/users'
 
 
 

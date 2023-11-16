@@ -7,7 +7,7 @@ const ItemToDoInput = ({ onSubmit }) => {
   const [isEditing, setIsEditing] = useState(false);
   const [formData, setFormData] = useState({});
   const [organisations, setOrganisations] = useState([]);
-  const route = 'itemtodos';
+  const route = 'itemToDos';
 
   useEffect(() => {
     // Fetch organisations for the select field
@@ -27,9 +27,12 @@ const ItemToDoInput = ({ onSubmit }) => {
 
   const fetchOrganisations = async () => {
     try {
-      const response = await axios.get(`${API_DOMAIN}${API_ROUTES.organisations}`);
-      const organisationsData = response.data;
+        const token = localStorage.getItem('token');
 
+        const headers = { 'Content-Type': 'application/json', Authorization: `Bearer ${token}`  }
+      const response = await axios.get(`${API_DOMAIN}${API_ROUTES.organisations}`,{headers});
+      const organisationsData = response.data['organisations'];
+        console.log(organisationsData)
       // Set the state with the fetched organisations
       setOrganisations(organisationsData);
     } catch (error) {
