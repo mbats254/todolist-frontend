@@ -14,8 +14,8 @@ const OrganisationListDetails = () => {
 
         const headers = { 'Content-Type': 'application/json', Authorization: `Bearer ${token}`  }
         const response = await axios.get(`${API_DOMAIN}${API_ROUTES.organisations}`,{headers});
-        console.log(response.data)
-        // setOrganisations(response.data);
+        
+        setOrganisations(response.data['organisations']);
       } catch (error) {
         console.error('Error fetching organisations:', error);
       }
