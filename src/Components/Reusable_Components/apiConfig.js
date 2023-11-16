@@ -6,7 +6,9 @@ export const API_ROUTES = {
   userLogin: 'api/user/login',
   organisations : 'api/organisations',
   itemToDos: 'api/organisations/todo-items/',
-  users: 'api/all/users'
+  users: 'api/all/users',
+  addUserToOrganisation: 'api/organisations/add/user/',
+  organisationMembers: 'api/organisations/all/members'
 
 
 

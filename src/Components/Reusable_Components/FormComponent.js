@@ -112,7 +112,7 @@ import { API_ROUTES, API_DOMAIN } from './apiConfig';
       }
     } catch (error) {
       
-      setSubmitResult({ success: false, message: 'Error submitting data' });
+      // setSubmitResult({ success: false, message: 'Error submitting data' });
       console.log('Error submitting data:', error);
     }
   };

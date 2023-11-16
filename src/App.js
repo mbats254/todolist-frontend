@@ -5,6 +5,7 @@ import OrganisationListDetails from "./Components/Organisation/ListComponents/Or
 import OrganisationInput from "./Components/Organisation/InputComponents/OrganisationInput";
 import ItemToDoInput from "./Components/ToDoItem/InputComponents/ItemToDoInput";
 import AddUserToOrganisation from "./Components/Organisation/InputComponents/AddUserToOrganisation";
+import OrganisationMembersListDetails from "./Components/Organisation/ListComponents/OrganisationMembersListDetails";
 
 
 const App = () => {
@@ -22,6 +23,7 @@ const App = () => {
             <Route path="/organisation/list" element={<OrganisationListDetails/>} />
             <Route path="/organisation/input/:organisationId?" element={<OrganisationInput/>} />
             <Route path="/add/user/organisation/input/:organisationId" element={<AddUserToOrganisation/>} />
+            <Route path="/organisation/members/:organisationId" element={<OrganisationMembersListDetails/>} />
            
           {/* To Do Routes   */}          
           <Route path="/to/do/item/input" element={<ItemToDoInput/>} />
