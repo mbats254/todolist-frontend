@@ -38,6 +38,7 @@ const SingleOrganisationDetail = () => {
   ];
 
   const membersLink = "/organisation/members/"+organisationId;
+  const addnewUser = "/add/user/organisation/input/"+organisationId;
   console.log(organisationDetails)
   return (
     <div>
@@ -45,6 +46,7 @@ const SingleOrganisationDetail = () => {
         <div>
           <SingleItemDetailTemplate details={organisationDetails} columns={columns} />
           <a href={membersLink}>Access Member Details</a>
+          <a href={addnewUser}>Add new user to organisation</a>
  
         </div>
       ) : (
