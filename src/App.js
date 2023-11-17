@@ -6,6 +6,8 @@ import OrganisationInput from "./Components/Organisation/InputComponents/Organis
 import ItemToDoInput from "./Components/ToDoItem/InputComponents/ItemToDoInput";
 import AddUserToOrganisation from "./Components/Organisation/InputComponents/AddUserToOrganisation";
 import OrganisationMembersListDetails from "./Components/Organisation/ListComponents/OrganisationMembersListDetails";
+import SingleOrganisationDetail from "./Components/Organisation/SingleItemDetailsComponents/SingleOrganisationDetail";
+import SingleUserTask from "./Components/ToDoItem/ListComponents/SingleUserTask";
 
 
 const App = () => {
@@ -24,9 +26,11 @@ const App = () => {
             <Route path="/organisation/input/:organisationId?" element={<OrganisationInput/>} />
             <Route path="/add/user/organisation/input/:organisationId" element={<AddUserToOrganisation/>} />
             <Route path="/organisation/members/:organisationId" element={<OrganisationMembersListDetails/>} />
+            <Route path="/single/organisation/:organisationId" element={<SingleOrganisationDetail/>} />
            
           {/* To Do Routes   */}          
-          <Route path="/to/do/item/input" element={<ItemToDoInput/>} />
+          <Route path="/to/do/item/input/:userId" element={<ItemToDoInput/>} />
+          <Route path="/single/user/tasks/:userId" element={<SingleUserTask/>} />
             
          </Routes>
       </BrowserRouter>

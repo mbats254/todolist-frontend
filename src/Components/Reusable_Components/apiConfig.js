@@ -8,7 +8,8 @@ export const API_ROUTES = {
   itemToDos: 'api/organisations/todo-items/',
   users: 'api/all/users',
   addUserToOrganisation: 'api/organisations/add/user/',
-  organisationMembers: 'api/organisations/all/members'
+  organisationMembers: 'api/organisations/all/members',
+  userTasks: 'api/organisations/todo-items/user'
 
 
 

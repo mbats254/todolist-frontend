@@ -2,15 +2,19 @@ import React, { useState, useEffect } from 'react';
 import FormComponent from '../../Reusable_Components/FormComponent';
 import { API_ROUTES, API_DOMAIN } from '../../Reusable_Components/apiConfig';
 import axios from 'axios';
+import { useParams } from 'react-router-dom';
 
 const ItemToDoInput = ({ onSubmit }) => {
   const [isEditing, setIsEditing] = useState(false);
   const [formData, setFormData] = useState({});
   const [organisations, setOrganisations] = useState([]);
   const route = 'itemToDos';
+  const { userId } = useParams();
+  const id = userId.replace(/\D/g, '');
 
   useEffect(() => {
     // Fetch organisations for the select field
+    console.log(id)
     fetchOrganisations();
 
     // Check if editing an existing item to do
@@ -43,12 +47,8 @@ const ItemToDoInput = ({ onSubmit }) => {
   const itemToDoFields = [
     { name: 'title', label: 'Title', type: 'text' },
     { name: 'description', label: 'Description', type: 'textarea' },
-    {
-      name: 'organisation_id',
-      label: 'Organisation',
-      type: 'select',
-      options: organisations.map((org) => ({ label: org.name, value: org.id })),
-    },
+    { name: 'user_id', label: '', type: 'hidden', readOnly:true, value:id },
+   
     // Add more fields as needed
   ];
 

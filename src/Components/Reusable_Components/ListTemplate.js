@@ -1,7 +1,8 @@
 import React from 'react';
 
 const ListTemplate = ({ columns, data, onEdit, onAccessDetails }) => {
-    
+  
+
   return (
     <table>
       <thead>

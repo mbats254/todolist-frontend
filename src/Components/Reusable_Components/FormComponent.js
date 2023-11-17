@@ -78,15 +78,28 @@ import { API_ROUTES, API_DOMAIN } from './apiConfig';
       if(response.status === 200) {
         console.log('Response from the backend:', response.data);
         setSubmitResult({ success: true, message: 'Data submitted successfully!' });
-       if(response.data['success']['token'])
-       {
-          localStorage.setItem('token',response.data['success']['token'])
-       }
-      if(redirectRoute)
+        if(redirectRoute)
       {
 
           window.location.href = redirectRoute
-      }
+      }      
+       else if(response.data['success']['token'])
+       {
+          localStorage.setItem('token',response.data['success']['token'])
+          if(response.data['success']['organisation_id'])
+          {
+              if(response.data['success']['rank'] == 'admin')
+              {
+                window.location.href ="/single/organisation/:"+response.data['success']['organisation_id']
+              }
+              else
+              {
+                window.location.href ="/single/user/tasks/:"+response.data['success']['id']
+              }
+          }
+
+       }
+      
       
       
       } 
@@ -107,6 +120,7 @@ import { API_ROUTES, API_DOMAIN } from './apiConfig';
       
       
       else {
+        setLoading(false)
         console.log('Response from the backend:', response.data);
         setSubmitResult({ success: false, message: 'Failed to submit data' });
       }

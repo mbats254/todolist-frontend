@@ -18,7 +18,7 @@ const LoginComponent = () => {
   return (
     <div>
       <h1>Login</h1>
-      <FormComponent fields={loginFields} initialFormData={formData} route={route} redirectRoute={redirectRoute}/>
+      <FormComponent fields={loginFields} initialFormData={formData} route={route}/>
       <a href="/register">Register User</a> 
     </div>
   );
